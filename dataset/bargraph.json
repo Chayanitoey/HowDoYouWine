@@ -1,0 +1,82 @@
+[
+  {
+    "country": "US",
+    "Red": 2305,
+    "White": 2012
+  },
+  {
+    "country": "Italy",
+    "Red": 881,
+    "White": 551
+  },
+  {
+    "country": "France",
+    "Red": 796,
+    "White": 920
+  },
+  {
+    "country": "Spain",
+    "Red": 299,
+    "White": 163
+  },
+  {
+    "country": "Portugal",
+    "Red": 241,
+    "White": 155
+  },
+  {
+    "country": "Argentina",
+    "Red": 207,
+    "White": 112
+  },
+  {
+    "country": "Chile",
+    "Red": 180,
+    "White": 182
+  },
+  {
+    "country": "Australia",
+    "Red": 82,
+    "White": 83
+  },
+  {
+    "country": "Austria",
+    "Red": 71,
+    "White": 216
+  },
+  {
+    "country": "South Africa",
+    "Red": 46,
+    "White": 65
+  },
+  {
+    "country": "New Zealand",
+    "Red": 42,
+    "White": 59
+  },
+  {
+    "country": "Israel",
+    "Red": 22,
+    "White": 11
+  },
+  {
+    "country": "Greece",
+    "Red": 13,
+    "White": 19
+  },
+  {
+    "country": "Bulgaria",
+    "Red": 10,
+    "White": 3
+  },
+  {
+    "country": "Germany",
+    "Red": 8,
+    "White": 148
+  },
+  {
+    "country": "Others",
+    "Red": 43,
+    "White": 55
+  }
+]

@@ -1,0 +1,397 @@
+
+
+<html>
+  <head>
+    <title>Wine Wine World Map</title>
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"-->
+    <!--/>-->
+    <!--<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>-->
+    <!--<script src="./leaflet.timeline.js"></script>-->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+<link href="Style.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+
+
+<script src ="appMap.js"></script>
+    <style>
+     style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+    </style>
+    
+  </head>
+  <body>
+    <div id="info">
+      <h4>It is a wine wine world</h4>
+      <h5>What do you fancy drinking?</h5>
+      <!--<button onclick="getRedWine()">I Feel Like Red Wine</button>-->
+      <!--<button onclick="getWhiteWine()">I Feel Like White Wine</button>-->
+      <h6> 
+      There are so many factors that make a wine taste better than other wines... 
+      terroirs and climates are the most influential factors! 
+      Explore white & red wine by country or dig deeper into the specific region 
+      by toggling options on the top navigation menu. 
+      <p>
+      See below legends for some tips.Cheers!
+      </p>
+      </h6> 
+      
+      <div class= "labels_map">
+      <img src="assets/test.svg">
+      </div>
+
+<!--      <input type="text" placeholder="Search..">-->
+    
+
+              
+              
+    </div>
+
+    <nav id="menu"></nav>
+    <div id="map"></div>
+
+    <script>
+/*global L*/
+/*global mapboxgl*/
+/*global fetch*/
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hheWFuaXR0b2V5IiwiYSI6ImNrd3FsaDg5dDBudWkydXM2ZDA5OHZ1emoifQ.0Id53dpAEDVDWdpeeRGu6A';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/chayanittoey/ckwqlnnhp0kpv14mhmyj61r5l',
+center: [12.550343, 55.665957],
+zoom: 2
+});
+
+map.on('load', () => {
+  
+  
+
+map.addSource('redworld', {
+  type: 'geojson',
+  data: 'https://raw.githubusercontent.com/Chayanitoey/DVIA/main/Final%20Project/world.geo.json'
+});
+
+map.addSource('whiteworld', {
+  type: 'geojson',
+  data: 'https://raw.githubusercontent.com/Chayanitoey/DVIA/main/Final%20Project/world.geo.json'
+});
+
+
+
+
+// Add a layer showing the countries polygons.
+map.addLayer({
+'id': 'Red Wine by Country',
+'type': 'fill',
+'source': 'redworld',
+'layout': {
+// Make the layer visible by default.
+'visibility': 'visible'
+},
+'paint': {
+ 'fill-color': {
+              property: 'Red_wine', // this will be your density property form you geojson
+              stops: [
+                [0,'#FFFFFF'],
+                [10, '#f0b8bd'],
+                [500,'#e0a3ad' ],
+                [800, '#d18f9e'],
+                [1000, '#c27a8f'],
+                [1500, '#b26680'],
+                [2000, '#751442'],
+                [2500,'#660033' ],
+              ]
+            },
+      'fill-outline-color': 'rgba(200, 100, 240, 1)'
+}
+});
+
+
+ 
+// When a click event occurs on a feature in the states layer,
+// open a popup at the location of the click, with description
+// HTML from the click event's properties.
+
+map.on('click', 'Red Wine by Country', (e) => {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML( "Country: " + e.features[0].properties.NAME +" " + "<br>" + e.features[0].properties.Red_wine + " Labels" )
+.addTo(map);
+});
+ 
+// Change the cursor to a pointer when
+// the mouse is over the states layer.
+map.on('mouseenter', 'Red Wine by Country', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change the cursor back to a pointer
+// when it leaves the states layer.
+map.on('mouseleave', 'Red Wine by Country', () => {
+map.getCanvas().style.cursor = '';
+});
+
+
+map.addLayer({
+'id': 'White Wine by Country',
+'type': 'fill',
+'source': 'whiteworld',
+'layout': {
+// Make the layer visible by default.
+'visibility': 'visible'
+},
+'paint': {
+ 'fill-color': {
+              property: 'White_wine', // this will be your density property form you geojson
+              stops: [
+                [0,'#FFFFFF'],
+                [10, '#FFF5D2'],
+                [500,'#FBDE78' ],
+                [800, '#FFC700'],
+                [1000, '#DAB223'],
+                [1500, '#CC960C'],
+                [2000, '#9C7101'],
+                [2500,'#634800' ],
+              ]
+            },
+  'fill-outline-color': 'rgba(255, 229, 0, 0.6)'
+
+}
+});
+
+map.on('click', 'White Wine by Country', (e) => {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML( "Country: " + e.features[0].properties.NAME +" " + "<br>" + e.features[0].properties.White_wine + " Labels" )
+.addTo(map);
+});
+ 
+// Change the cursor to a pointer when
+// the mouse is over the states layer.
+map.on('mouseenter', 'White Wine by Country', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change the cursor back to a pointer
+// when it leaves the states layer.
+map.on('mouseleave', 'White Wine by Country', () => {
+map.getCanvas().style.cursor = '';
+});
+
+
+
+
+ 
+});
+
+
+// When a click event occurs on a feature in the states layer,
+// open a popup at the location of the click, with description
+// HTML from the click event's properties.
+
+
+
+
+
+  // After the last frame rendered before the map enters an "idle" state.
+    map.on('idle', () => {
+        // If these two layers were not added to the map, abort
+        if (!map.getLayer('Red Wine by Country') || !map.getLayer('White Wine by Country')
+        || !map.getLayer('All Red Wine') || !map.getLayer('All White Wine')) {
+            return;
+        }
+
+        // Enumerate ids of the layers.
+        const toggleableLayerIds = ['Red Wine by Country', 'White Wine by Country','All Red Wine','All White Wine'];
+
+        // Set up the corresponding toggle button for each layer.
+        for (const id of toggleableLayerIds) {
+            // Skip layers that already have a button set up.
+            if (document.getElementById(id)) {
+                continue;
+            }
+
+            // Create a link.
+            const link = document.createElement('a');
+            link.id = id;
+            link.href = '#';
+            link.textContent = id;
+            link.className = 'active';
+
+            // Show or hide layer when the toggle is clicked.
+            link.onclick = function (e) {
+                const clickedLayer = this.textContent;
+                e.preventDefault();
+                e.stopPropagation();
+
+                const visibility = map.getLayoutProperty(
+                    clickedLayer,
+                    'visibility'
+                );
+
+                // Toggle layer visibility by changing the layout object's visibility property.
+                if (visibility === 'visible') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                    this.className = '';
+                } else {
+                    this.className = 'active';
+                    map.setLayoutProperty(
+                        clickedLayer,
+                        'visibility',
+                        'visible'
+                    );
+                }
+            };
+
+            const layers = document.getElementById('menu');
+            layers.appendChild(link);
+        }
+    });
+    
+
+///adding Red wine bottles/// 
+
+map.on('load', () => {
+  
+  map.loadImage(
+    './assets/RedWine.png',
+    (error, image) => {
+    if (error) throw error;
+    map.addImage('custom-marker', image);
+    // Add a GeoJSON source with 2 points
+    map.addSource('All Red Wine', {
+    'type': 'geojson',
+    data: 'https://raw.githubusercontent.com/Chayanitoey/DVIA/main/Final%20Project/RedWine_Geolocations.geojson'
+    });
+     
+    // Add a symbol layer
+    map.addLayer({
+    'id': 'All Red Wine',
+    'type': 'symbol',
+    'source': 'All Red Wine',
+    'layout': {
+    'icon-image': 'custom-marker',
+    'icon-size': 0.05,
+    'visibility': 'visible'
+    }
+    });
+    })
+
+// map.addSource('redWineMarkers', {
+// type: 'geojson',
+// // Use a URL for the value for the `data` property.
+// data: 'https://raw.githubusercontent.com/Chayanitoey/DVIA/main/Final%20Project/RedWine_Geolocations.geojson'
+// });
+
+
+ 
+// map.addLayer({
+// 'id': 'redWineMarkers',
+// 'type': 'circle',
+// 'source': 'redWineMarkers',
+// 'paint': {
+// 'circle-radius': 8,
+// 'circle-stroke-width': 2,
+// 'circle-color': 'red',
+// 'circle-stroke-color': 'white'
+// }
+// });
+
+
+map.on('click', 'All Red Wine', (e) => {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML( "Wine: " + e.features[0].properties.title +" " + "<br>"+ "<br>"+"Winery: " + e.features[0].properties.winery  +" " + "<br>"+" " + "<br>" + e.features[0].properties.descrption  +" " + "<br>"+"<br>"+"Price: $" + e.features[0].properties.price)
+.addTo(map);
+});
+ 
+// Change the cursor to a pointer when
+// the mouse is over the states layer.
+map.on('mouseenter', 'All Red Wine', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change the cursor back to a pointer
+// when it leaves the states layer.
+map.on('mouseleave', 'All Red Wine', () => {
+map.getCanvas().style.cursor = '';
+});
+
+
+
+
+});
+
+
+
+
+
+///adding White wine bottles/// 
+
+map.on('load', () => {
+  
+  map.loadImage(
+    './assets/WhiteWine_new.png',
+    (error, image) => {
+    if (error) throw error;
+    map.addImage('whitebottle-marker', image);
+    // Add a GeoJSON source with 2 points
+    map.addSource('All White Wine', {
+    'type': 'geojson',
+    data: 'https://raw.githubusercontent.com/Chayanitoey/DVIA/main/Final%20Project/whiteWineGeoFull_cleaned.geojson'
+    });
+     
+    // Add a symbol layer
+    map.addLayer({
+    'id': 'All White Wine',
+    'type': 'symbol',
+    'source': 'All White Wine',
+    'layout': {
+    'icon-image': 'whitebottle-marker',
+    'icon-size': 0.15,
+    'visibility': 'visible'
+    }
+    });
+    })
+
+
+map.on('click', 'All White Wine', (e) => {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML( "Wine: " + e.features[0].properties.title +" " + "<br>"+ "<br>"+"Winery: " + e.features[0].properties.winery 
++" " + "<br>"+"<br>"+"Wine Variety: " + e.features[0].properties.variety +" " + "<br>"+" " + "<br>" + e.features[0].properties.description 
++" " + "<br>"+"<br>"+"Price: $" + e.features[0].properties.price)
+.addTo(map);
+});
+ 
+// Change the cursor to a pointer when
+// the mouse is over the states layer.
+map.on('mouseenter', 'All White Wine', () => {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change the cursor back to a pointer
+// when it leaves the states layer.
+map.on('mouseleave', 'All White Wine', () => {
+map.getCanvas().style.cursor = '';
+});
+
+
+
+
+});
+
+
+
+    
+
+</script>
+  </body>
+</html>
