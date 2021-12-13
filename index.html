@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>How Do You Wine?</title>
+  <link rel="stylesheet" href="Style.css">
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <!--<script src="https://d3js.org/d3.v6.js"></script>-->
+  <script type="text/javascript" src="treemap.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+
+
+
+
+<body>
+<div class="topnav" id="myTopnav">
+  <a href="Index.html" class="active">Main</a>
+  <a href="WineMap.html">Map</a>
+  <!--<a href="#contact">Contact</a>-->
+  <!--<a href="#">About This Project</a>-->
+
+</div>
+<!-- partial:index.partial.html -->
+<header class="container">
+
+  <h1>How do you <br>
+'<subhead style ="color:#7A0505"> Wine </subhead>' ?
+
+<div class ="groupImage">
+ <img class= "image1" src="assets/winepic1.png"></img>
+ <img class= "image2" src="assets/winepic2.png"></img>
+</div>
+</h1>
+
+  <h2>A data of wine by Chay Chayanit Thawaranont. <br>
+  <!--<mark> Disclaimer: I am not a wine expert, just a curious drinker!</mark>-->
+    <p class="animate-arrow">&darr;
+    </p>
+  </h2>
+
+
+
+</header>
+<section class="scroll-container">
+  <div class="scroll-element js-scroll fade-in">
+      <img class ="image3" src="assets/barrel.png"></img>
+  </div>
+  <div class="scroll-caption">
+   “It is the wine that leads me on,
+the wild wine <br>
+that <subcontext>sets the wisest man to sing
+at the top of his lungs, </subcontext><br>
+laugh like a fool – it drives the
+man to dancing... <br>it even
+tempts him to<subcontext> blurt out stories 
+better never told.”</subcontext><br>
+― Homer, The Odyssey 
+  </div>
+</section>
+<section class="scroll-container">
+  <div class="scroll-element js-scroll fade-in-bottom">
+      <img class ="image4" src="assets/grape.png"></img>
+  </div>
+  <div class="scroll-caption">
+For thousands of years,wine has been the most favorable bevarage of mankind, 
+<br>it’s undeniable that we all used to be a novice in this field...  
+<p>
+  <br>Have you ever wondered <subcontext>what wine should you get<br>whenever you enter in a wine celler full of wine varieties?</subcontext>  
+  There are about 500++ wine varieties out there in the world, how can you identify where your favorite wine come from? 
+</p>
+<p>
+  <br>Have you ever felt confused on the differences <br>between the things you like and dislike? 
+</p>
+<p>
+  <br>This visualization will help you navigate your wine journey...
+</p>
+</div>
+</section>
+ <div id ="explaining"> 'Red Wine Varieties Treemap' on the left<br>& 'White Wine Varieties Treemap' on the right.
+ <br>showing the wine varieties and the countries that product that wine, <br> the area is calculated by how much that country produce that variety.   
+ </div>
+<section class="scroll-container">
+  <div class="scroll-element js-scroll slide-left">
+    <img class ="image6" src="assets/WhiteWine2.jpg"></img>
+    <img class ="image5" src="assets/Redwine.jpg"></img>
+
+     <!--<div id= "my_stackgraph">-->
+  </div>  </div>
+  <!--<div class="scroll-caption">-->
+  <!-- In the last twenty years, Americans have become  <br>extremely thristy for wines from around the world, <br> -->
+  <!--making the US the number one wine drinking nation.” <br> - Aldo Sohm-->
+  <!--</div>-->
+
+</section>
+
+<section class="scroll-containerSpecial">
+</section>
+<h2>explore the world of wine on the map click below</h2>
+<a href="WineMap.html"><h7>wine map</h7></a>
+<div class="gifimage"><a href="WineMap.html"><img src="assets/finalwine.gif"></img></a>
+
+<section class="scroll-containerSpecial">
+</section>
+
+
+<section class="scroll-container">
+  <div class="scroll-element js-scroll slide-left">
+     <div id= "my_stackgraph">
+  </div>  </div>
+  <div class="scroll-caption">
+    <p>This visualization on the left compares wine varieties ( for the sake of simplicity,<mark> I categorized them to ‘RED’ and ‘WHITE’</mark> )  from all around the world based on this open data set, publicly available on Kaggle. 
+    </p>
+    <p>Looking at the chart, the unusual amount of wines produced in the US is problematic, when compared to the volume of wines produced in other countries, it is an outlier value. According to Statista, Italy produces the most wine in 2020 but the leading global consumer of wine is still the US.  
+    </p>
+    <p>While this dataset remains dubious and may require more investigation to summarize the underlining conclusion of the global wine production, it still provides a high level of insights. In some countries, like US and Italy, red wine is more dominant, and evidently, other sources report the same conclusion. 
+    </p>
+    <p>However, in countries like France or Australia, we see a larger volume of White wines. It is understandable since France produces most Chardonnay in the world. 
+     </p>
+ </div>
+</section>
+
+
+<section class="scroll-container">
+  <div class="scroll-element js-scroll slide-left">
+    <div id="my_dataviz"></div>
+  </div>
+  <div class="scroll-caption">
+    <h3>White Wine Volume By Countries</h3>
+    *Hover on the stream chart to see the country & its white wine volume* 
+    
+  </div>
+</section>
+
+
+
+<section class="scroll-container">
+  <div class="scroll-element js-scroll slide-right">
+    <div id="my_dataviz2"></div>
+  </div>
+  <div class="scroll-caption">
+    <h3>Red Wine Volume By Countries</h3>
+*Hover on the stream chart to see the country & its red wine volume*
+Start your wine journey here. Explore more about this visualization + see more details on the Wine World Map. 
+ <button><a href="WineMap.html">Launch Map</a></button>
+</div>
+</section>
+<footer>
+  <p> <a href="#" target="_blank">About</a> <a href="#" target="_blank">Contact</a><a href="#" target="_blank"> Github</a></p>
+  <p>
+  © 2021 Chayanit Thawaranont for <a href="#" target="_blank">DVIA class at Parsons Fall 2021</a><span style="color: #D11E15"> &#9829;</span>
+  </p>
+</footer>
+<!-- partial -->
+  <script  src="app.js"></script>
+
+<script>
+
+// set the dimensions and margins of the graph
+
+
+var margin = {top: 40, right: 0, bottom: 0, left: 20},
+    width = 720 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right + 100)
+    .attr("height", height + margin.top + margin.bottom + 100)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.csv("dataset/test_whiteWineGraph.csv", function(data) {
+
+  // List of groups = header of the csv files
+  var keys = data.columns.slice(1)
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.year; }))
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height*0.8 + ")")
+    .call(d3.axisBottom(x).tickSize(-height*.7).tickValues([2000,2005, 2010,2016]))
+    .select(".domain").remove()
+  // Customization
+  svg.selectAll(".tick line").attr("stroke", "#b8b8b8")
+
+  // Add X axis label:
+  svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height )
+      .text("Time (year)");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([-500, 500])
+    .range([ height, 0 ]);
+
+  // color palette
+  var color = d3.scaleOrdinal()
+    .domain(keys)
+    .range(d3.schemeYlOrBr[5]);
+    
+    
+
+  //stack the data?
+  var stackedData = d3.stack()
+    .offset(d3.stackOffsetSilhouette)
+    .keys(keys)
+    (data)
+
+  // create a tooltip
+  var Tooltip = svg
+    .append("text")
+    .attr("x", 350)
+    .attr("y", 0)
+    .style("opacity", 0)
+    .style("font-size", 30+'px')
+    // .style("left",)
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    Tooltip.style("opacity", 1)
+    d3.selectAll(".myArea").style("opacity", .2)
+    d3.select(this)
+      .style("stroke", "black")
+      .style("opacity", 1)
+      }
+  var mousemove = function(d,i) {
+    grp = keys[i]
+    Tooltip.text(grp)
+  }
+  var mouseleave = function(d) {
+    Tooltip.style("opacity", 0)
+    d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none")
+   }
+
+  // Area generator
+  var area = d3.area()
+    .x(function(d) { return x(d.data.year); })
+    .y0(function(d) { return y(d[0]); })
+    .y1(function(d) { return y(d[1]); })
+
+  // Show the areas
+  svg
+    .selectAll("mylayers")
+    .data(stackedData)
+    .enter()
+    .append("path")
+      .attr("class", "myArea")
+      .style("fill", function(d) { return color(d.key); })
+      .attr("d", area)
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+
+})
+</script>
+
+
+<script>
+// creating red wine stream graphs
+
+// set the dimensions and margins of the graph
+var margin1 = {top: 100, right: 0, bottom: 0, left: 0},
+    width1 = 600 - margin1.left - margin1.right,
+    height1 = 600 - margin1.top - margin1.bottom;
+
+// append the svg object to the body of the page
+var svg2 = d3.select("#my_dataviz2")
+  .append("svg")
+    .attr("width", width1 + margin1.left + margin1.right +300)
+    .attr("height", height1 + margin1.top + margin1.bottom+ 100)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin1.left + "," + margin1.top + ")");
+
+// Parse the Data
+d3.csv("dataset/test_redWineGraph.csv", function(data) {
+
+  // List of groups = header of the csv files
+  var keys = data.columns.slice(1)
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.year; }))
+    .range([ 0, width1 ]);
+  svg2.append("g")
+    .attr("transform", "translate(0," + height*0.7 + ")")
+    .call(d3.axisBottom(x).tickSize(-height*.6).tickValues([1994,2004, 2009,2016]))
+    .select(".domain").remove()
+  // Customization
+  svg2.selectAll(".tick line").attr("stroke", "#b8b8b8")
+
+  // Add X axis label:
+  svg2.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", width1)
+      .attr("y", height1 )
+      .text("Time (year)");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([-400, 400])
+    .range([ height, 0 ]);
+
+  // color palette
+  var color = d3.scaleOrdinal()
+    .domain(keys)
+    .range(d3.schemePurples[9]);
+
+  //stack the data?
+  var stackedData = d3.stack()
+    .offset(d3.stackOffsetSilhouette)
+    .keys(keys)
+    (data)
+
+  // create a tooltip
+  var Tooltip2 = svg2
+    .append("text")
+    .attr("x", 200)
+    .attr("y", 0)
+    .style("opacity", 0)
+    .style("font-size", 30+'px')
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    Tooltip2.style("opacity", 1)
+    d3.selectAll(".myArea").style("opacity", .2)
+    d3.select(this)
+      .style("stroke", "black")
+      .style("opacity", 1)
+  }
+  var mousemove = function(d,i) {
+    grp = keys[i]
+    Tooltip2.text(grp)
+  }
+  var mouseleave = function(d) {
+    Tooltip2.style("opacity", 0)
+    d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none")
+   }
+
+  // Area generator
+  var area = d3.area()
+    .x(function(d) { return x(d.data.year); })
+    .y0(function(d) { return y(d[0]); })
+    .y1(function(d) { return y(d[1]); })
+
+  // Show the areas
+  svg2
+    .selectAll("mylayers")
+    .data(stackedData)
+    .enter()
+    .append("path")
+      .attr("class", "myArea")
+      .style("fill", function(d) { return color(d.key); })
+      .attr("d", area)
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+
+})
+</script>
+
+<!--creating stack bar charts-->
+
+<script>
+// set the dimensions and margins of the graph
+var margin2 = {top: 10, right: 0, bottom: 20, left: 50},
+    width2 = 860 - margin2.left - margin2.right,
+    height2 = 400 - margin2.top - margin2.bottom;
+
+// append the svg object to the body of the page
+var svg3 = d3.select("#my_stackgraph")
+  .append("svg")
+    .attr("width", width2 + margin2.left + margin2.right +20)
+    .attr("height", height2 + margin2.top + margin2.bottom +10 )
+  .append("g")
+    .attr("transform",
+          "translate(" + margin2.left + "," + margin2.top + ")");
+          
+svg3.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#240046")
+svg3.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "#FFF6CC")
+svg3.append("text").attr("x", 220).attr("y", 130).text("Red Wine*").style("font-size", "15px").attr("alignment-baseline","middle")
+svg3.append("text").attr("x", 220).attr("y", 160).text("White Wine*").style("font-size", "15px").attr("alignment-baseline","middle")
+
+// Parse the Data
+d3.csv("dataset/Bargraph.csv", function(data) {
+
+  // List of subgroups = header of the csv files = soil condition here
+  var subgroups = data.columns.slice(1)
+
+  // List of groups = species here = value of the first column called group -> I show them on the X axis
+  var groups = d3.map(data, function(d){return(d.country)}).keys()
+
+  // Add X axis
+  var x1 = d3.scaleBand()
+      .domain(groups)
+      .range([0, width2])
+      .padding([0.3])
+  svg3.append("g")
+    .attr("transform", "translate(1," + 375+")")
+    .call(d3.axisBottom(x1).tickSizeOuter(0));
+
+  // Add Y axis
+  var y1 = d3.scaleLinear()
+    .domain([100, 5000])
+    .range([ height2, 6 ]);
+  svg3.append("g")
+    .call(d3.axisLeft(y1).ticks(10));
+
+  // color palette = one color per subgroup
+  var color = d3.scaleOrdinal()
+    .domain(subgroups)
+    .range(['#240046','#FFF6CC'])
+
+  //stack the data? --> stack per subgroup
+  var stackedData = d3.stack()
+    .keys(subgroups)
+    (data)
+
+
+
+
+  // ----------------
+  // Create a tooltip
+  // ----------------
+  var tooltip1 = d3.select("#my_stackgraph")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip1")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "2px")
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover1 = function(d) {
+    var subgroupName1 = d3.select(this.parentNode).datum().key;
+    var subgroupValue1 = d.data[subgroupName1];
+    var subgroupName2 = d.data.country;
+    tooltip1
+        .html("Country:"+ subgroupName2+ "<br>"+ subgroupName1 + " Wine"+"<br>" + "Volume: " + subgroupValue1 +" labels")
+        .style("opacity", 1)
+  }
+  var mousemove1 = function(d) {
+    tooltip1
+      .style("left", (d3.mouse(this)[0]+5) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      // .style("top", (d3.mouse(this)[0]) + "px")
+    
+  }
+  var mouseleave1 = function(d) {
+    tooltip1
+      .style("opacity", 0)
+  }
+
+
+
+
+  // Show the bars
+  svg3.append("g")
+    .selectAll("g")
+    // Enter in the stack data = loop key per key = group per group
+    .data(stackedData)
+    .attr("font-family", "sans-serif")
+    .enter().append("g")
+      .attr("fill", function(d) { return color(d.key); })
+      .attr("font-family","Cutive Mono")
+      .selectAll("rect")
+      // enter a second time = loop subgroup per subgroup to add all rectangles
+      .data(function(d) { return d; })
+      .enter().append("rect")
+        .attr("x", function(d) { return x1(d.data.country); })
+        .attr("y", function(d) { return y1(d[1]); })
+        .attr("height", function(d) { return y1(d[0]) - y1(d[1]); })
+        .attr("width",x1.bandwidth())
+        .attr("stroke", "grey")
+      .on("mouseover", mouseover1)
+      .on("mousemove", mousemove1)
+      .on("mouseleave", mouseleave1)
+
+})
+</script>
+
+  <script>
+
+// set the dimensions and margins of the graph
+var margin3 = {top: 10, right: 10, bottom: 10, left: 10},
+  width3 = 445 - margin3.left - margin3.right,
+  height3 = 445 - margin3.top - margin3.bottom;
+
+// append the svg object to the body of the page
+var svg4 = d3.select("#treemap")
+.append("svg")
+  .attr("width", width3 + margin3.left + margin3.right)
+  .attr("height", height3 + margin3.top + margin3.bottom)
+.append("g")
+  .attr("transform",
+        "translate(" + margin3.left + "," + margin3.top + ")");
+
+// read json data
+d3.json("https://github.com/Chayanitoey/DVIA/blob/main/Final%20Project/Red_wine_treemap.json", function(data) {
+
+  // Give the data to this cluster layout:
+  var root = d3.hierarchy(data).sum(function(d){ return d.Color}) // Here the size of each leave is given in the 'value' field in input data
+
+  // Then d3.treemap computes the position of each element of the hierarchy
+  d3.treemap()
+    .size([width3, height3])
+    .paddingTop(28)
+    .paddingRight(7)
+    .paddingInner(3)      // Padding between each rectangle
+    //.paddingOuter(6)
+    //.padding(20)
+    (root)
+
+  // prepare a color scale
+  var color = d3.scaleOrdinal()
+    .domain(["boss1", "boss2", "boss3"])
+    .range([ "#402D54", "#D18975", "#8FD175"])
+
+  // And a opacity scale
+  var opacity = d3.scaleLinear()
+    .domain([10, 30])
+    .range([.5,1])
+
+  // use this information to add rectangles:
+  svg4
+    .selectAll("rect")
+    .data(root.leaves())
+    .enter()
+    .append("rect")
+      .attr('x', function (d) { return d.x0; })
+      .attr('y', function (d) { return d.y0; })
+      .attr('width', function (d) { return d.x1 - d.x0; })
+      .attr('height', function (d) { return d.y1 - d.y0; })
+      .style("stroke", "black")
+      .style("fill", function(d){ return color(d.parent.data.Variety)} )
+      .style("opacity", function(d){ return opacity(d.data.Value)})
+
+  // and to add the text labels
+  svg4
+    .selectAll("text")
+    .data(root.leaves())
+    .enter()
+    .append("text")
+      .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+      .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
+      // .text(function(d){ return d.data.name.replace('mister_','') })
+      .attr("font-size", "19px")
+      .attr("fill", "white")
+
+  // and to add the text labels
+  svg4
+    .selectAll("vals")
+    .data(root.leaves())
+    .enter()
+    .append("text")
+      .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+      .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
+      .text(function(d){ return d.data.Value })
+      .attr("font-size", "11px")
+      .attr("fill", "white")
+
+  // Add title for the 3 groups
+  svg4
+    .selectAll("titles")
+    .data(root.descendants().filter(function(d){return d.depth==1}))
+    .enter()
+    .append("text")
+      .attr("x", function(d){ return d.x0})
+      .attr("y", function(d){ return d.y0+21})
+      .text(function(d){ return d.data.Variety })
+      .attr("font-size", "19px")
+      .attr("fill",  function(d){ return color(d.data.Variety)} )
+
+  // Add title for the 3 groups
+  svg4
+    .append("text")
+      .attr("x", 0)
+      .attr("y", 14)    // +20 to adjust position (lower)
+      .text("Three group leaders and 14 employees")
+      .attr("font-size", "19px")
+      .attr("fill",  "grey" )
+
+})
+  
+  
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
